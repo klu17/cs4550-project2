@@ -37,7 +37,8 @@ function Header(props) {
         </div>
         <div className="col-4">
             <p>
-              <Link to={"/users"}>Users</Link>
+                <Link to={"/users"}>Users</Link> &nbsp; | &nbsp;
+                <Link to={"/leaderboard"}>Leaderboard</Link>
             </p>
         </div>
         <div className="col-4">

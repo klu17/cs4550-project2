@@ -31,7 +31,8 @@ defmodule Project2Web.UserView do
   def render("user.json", %{user: user}) do
     %{id: user.id,
       email: user.email,
-      display_name: user.display_name}
+      display_name: user.display_name,
+      points: user.points}
   end
 
 

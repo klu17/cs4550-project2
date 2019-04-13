@@ -10,7 +10,7 @@ import Post from './Post';
 import UserProfile from './UserProfile';
 import RegisterForm from './RegisterForm';
 import EditUserForm from './EditUserForm';
-
+//import Leaderboard from './Leaderboard';
 export default function root_init(node, channel) {
     ReactDOM.render(<Root channel={channel} />, node);
 }
@@ -132,6 +132,9 @@ class Root extends React.Component {
           <Route path="/edituser" render={() =>
                   <EditUserForm logout={this.logout.bind(this)} session={this.state.session} user_id={this.state.session && this.state.session.user_id || 0} />
           } />
+          <Route path="/leaderboard" render={(props) => 
+            <Leaderboard {...props} session={this.state.session} users={this.state.users}/>
+          }/>
 
         </div>
       </Router>;
@@ -175,5 +178,39 @@ function User(props) {
         <td>
             <Link to={"/users/" + user.id}><p>{user.display_name}</p></Link>
         </td>
-          </tr>;
+        </tr>;
+}
+
+function UserOnBoard(props) {
+    let {user} = props;
+    //console.log(user.points);
+      return <tr>
+        <td>
+            <Link to={"/users/" + user.id}><p>{user.display_name}</p></Link>
+        </td>
+        <td>
+            {user.points}
+        </td>
+        </tr>;
+}
+
+
+function Leaderboard(props) {
+    let rows = _.map(props.users, (uu) => <UserOnBoard key={uu.id} user={uu} />);
+    console.log(props.users)
+      return <div className="row">
+            <div className="col-12">
+              <table className="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Names</th>
+                      <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows}
+                </tbody>
+              </table>
+            </div>
+          </div>;
 }

@@ -49,7 +49,7 @@ defmodule Project2Web.FriendRequestController do
   end
   def update(conn, %{"user_id" => user_id}) do
     current_user_id = conn.assigns.current_user.id
-    
+    {user_id, _ } = Integer.parse(user_id)
     friend_request = Friends.get_user_friend_request(user_id, current_user_id)
     if friend_request do   
       Friends.delete_friend_request(friend_request)

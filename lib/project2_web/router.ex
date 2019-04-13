@@ -26,6 +26,7 @@ defmodule Project2Web.Router do
     get "/pokes", PageController, :index
     get "/register", PageController, :index
     get "/edituser", PageController, :index
+    get "/leaderboard", PageController, :index
   end
 
   # Other scopes may use custom stacks.

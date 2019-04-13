@@ -5,7 +5,6 @@ import api from './api';
 
 import WallPosts from './WallPosts';
 
-// TODO make this a function after adding store...?
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
