@@ -1,9 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import api from './api';
-import WallPosts from './WallPosts';
-// TODO: Delete this completely unused file
-class Leaderboard extends React.Component {
+
+class Board extends React.Component {
   constructor(props) {
     super(props);
 

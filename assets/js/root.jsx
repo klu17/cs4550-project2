@@ -10,7 +10,6 @@ import Post from './Post';
 import UserProfile from './UserProfile';
 import RegisterForm from './RegisterForm';
 import EditUserForm from './EditUserForm';
-//import Leaderboard from './Leaderboard';
 export default function root_init(node, channel) {
     ReactDOM.render(<Root channel={channel} />, node);
 }
@@ -196,8 +195,10 @@ function UserOnBoard(props) {
 
 
 function Leaderboard(props) {
-    let rows = _.map(props.users, (uu) => <UserOnBoard key={uu.id} user={uu} />);
-    console.log(props.users)
+    let sorted = _.sortBy(props.users, ['user', 'points']);
+    let reversed = _.reverse(sorted);
+    let rows = _.map(reversed, (uu) => <UserOnBoard key={uu.id} user={uu} />);
+    console.log(rows)
       return <div className="row">
             <div className="col-12">
               <table className="table table-striped">
