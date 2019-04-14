@@ -50,7 +50,7 @@ class Root extends React.Component {
         this.channel.on("poke", pokeNotif.bind(this));
 
     }
-   
+
     setChannelJoined() {
       this.setState(_.assign({}, this.state, {channelJoined: true}));
     }
@@ -132,7 +132,7 @@ class Root extends React.Component {
                   <EditUserForm logout={this.logout.bind(this)} session={this.state.session} user_id={this.state.session && this.state.session.user_id || 0} />
           } />
           <Route path="/leaderboard" render={(props) => 
-            <Leaderboard {...props} session={this.state.session} users={this.state.users}/>
+                  <Leaderboard {...props} session={this.state.session} users={this.state.users}/>
           }/>
 
         </div>
@@ -185,7 +185,7 @@ function UserOnBoard(props) {
     //console.log(user.points);
       return <tr>
         <td>
-            <Link to={"/users/" + user.id}><p>{user.display_name}</p></Link>
+            {user.display_name}
         </td>
         <td>
             {user.points}
@@ -198,7 +198,8 @@ function Leaderboard(props) {
     let sorted = _.sortBy(props.users, ['user', 'points']);
     let reversed = _.reverse(sorted);
     let rows = _.map(reversed, (uu) => <UserOnBoard key={uu.id} user={uu} />);
-    console.log(rows)
+    //console.log(rows);
+
       return <div className="row">
             <div className="col-12">
               <table className="table table-striped">
