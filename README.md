@@ -2,10 +2,12 @@
 Before enhancement
 - Points shown on user profile 
 - Earn/lose points depending on weather
-- See how friends are doing by clicking on 'Users' and selecting one friend
+- See how friends are doing by checking on one friend at a time
 After enhancement
 - Leaderboard among friends
 - Check progress of all friends at once
+- Ranked from high to low scores from top to bottom
+- Accurate information comes with a refresh of the page
 
 To start your Phoenix server:
 
